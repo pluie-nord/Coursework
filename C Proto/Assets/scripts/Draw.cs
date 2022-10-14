@@ -78,7 +78,7 @@ public class Draw : MonoBehaviour
             ResetLine();
         }
         drawFolder.SetActive(false);
-        FindObjectOfType<ShipController>().enabled = true;
+        FindObjectOfType<Controller>().enabled = true;
         
     }    
 

@@ -29,7 +29,7 @@ public class ObjectInteraction : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F))
             {
                 drawFolder.SetActive(true);
-                FindObjectOfType<ShipController>().enabled = false;
+                FindObjectOfType<Controller>().enabled = false;
                 FindObjectOfType<Draw>().currentObject = this;
             }
 
