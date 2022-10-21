@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float moveV, moveH;
+    private float moveH, moveV;
     [SerializeField] private float moveSpeed = 1.0f;
     private void Awake()
     {
@@ -17,13 +17,10 @@ public class Controller : MonoBehaviour
 
         moveH = Input.GetAxis("Horizontal")*moveSpeed;
         moveV = Input.GetAxis("Vertical") * moveSpeed;
+        rb.velocity = new Vector2(moveH, moveV);
 
-        Vector2 inputVector = new Vector2(moveH, moveV);
-
-        inputVector = Vector2.ClampMagnitude(inputVector, 1);
-        Vector2 movement = inputVector * moveSpeed;
-
-        Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-        rb.MovePosition(newPos);
+        Vector2 direction = new Vector2(moveH, moveV);
+        FindObjectOfType<PlayerAnimation>().SetDirection(direction);
     }
+
 }
