@@ -5,11 +5,13 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Draw : MonoBehaviour
+public class Draw : MonoBehaviour, IPicture
 {
+    public int ID { get; set; }
+
     [SerializeField] List<GameObject> btnsOrder;
     public List<GameObject> currentOrder;
-    [SerializeField] GameObject image;
+    [SerializeField] GameObject imageObj;
     public ObjectInteraction currentObject;
     private void Start()
     {
@@ -23,6 +25,12 @@ public class Draw : MonoBehaviour
         {
             btnsOrder[i].GetComponent<Button>().interactable = false;
         }
+    }
+
+    public void SetImage(int pictureID, Sprite image)
+    {
+        ID = pictureID;
+        imageObj.GetComponent<Image>().sprite = image;
     }
 
     public void SetLine()
@@ -65,9 +73,10 @@ public class Draw : MonoBehaviour
 
     private void DrawImage()
     {
-        Destroy(currentObject.UIlayer);
+        currentObject.UIlayer.SetActive(false);
         Destroy(currentObject);
-        image.SetActive(true);
+        imageObj.SetActive(true);
+        DrawEvent.PictureDrawn(this);
     }
 
     [SerializeField] GameObject drawFolder;
