@@ -3,7 +3,7 @@ guid: 1e29630d95b1e2541ba3028d5e71b3fd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -116,34 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: concept gg (1)_0
-      rect:
-        serializedVersion: 2
-        x: 1878
-        y: 973
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd2128356edea304da44f30b2581c9d1
-      internalID: -284658191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: concept gg (1)_1
       rect:
         serializedVersion: 2
-        x: 229
-        y: 166
-        width: 407
-        height: 803
+        x: 43
+        y: 188
+        width: 411
+        height: 779
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +141,10 @@ TextureImporter:
       name: concept gg (1)_2
       rect:
         serializedVersion: 2
-        x: 728
-        y: 173
-        width: 232
-        height: 798
+        x: 598
+        y: 165
+        width: 407
+        height: 804
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +162,10 @@ TextureImporter:
       name: concept gg (1)_3
       rect:
         serializedVersion: 2
-        x: 983
-        y: 161
-        width: 453
-        height: 794
+        x: 1098
+        y: 172
+        width: 231
+        height: 800
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +183,10 @@ TextureImporter:
       name: concept gg (1)_4
       rect:
         serializedVersion: 2
-        x: 1496
-        y: 173
-        width: 461
-        height: 777
+        x: 1352
+        y: 160
+        width: 454
+        height: 796
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +204,10 @@ TextureImporter:
       name: concept gg (1)_5
       rect:
         serializedVersion: 2
-        x: 2009
-        y: 189
-        width: 412
-        height: 777
+        x: 1864
+        y: 172
+        width: 462
+        height: 779
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,6 +217,69 @@ TextureImporter:
       bones: []
       spriteID: 01d3b5695fd58384b85d8c3497ef0e4c
       internalID: 817312923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept gg (1)_6
+      rect:
+        serializedVersion: 2
+        x: 2398
+        y: 172
+        width: 233
+        height: 800
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25244f67a6073d046bbafea222cce03b
+      internalID: 957511772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept gg (1)_7
+      rect:
+        serializedVersion: 2
+        x: 2691
+        y: 165
+        width: 406
+        height: 804
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fabd515748a2445ae0bd724b379627
+      internalID: 1023504687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept gg (1)_8
+      rect:
+        serializedVersion: 2
+        x: 3128
+        y: 188
+        width: 412
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feeb222a78b72d84eb35dbd548110c26
+      internalID: 357842150
       vertices: []
       indices: 
       edges: []
@@ -252,11 +295,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      concept gg (1)_9: -186038899
       concept gg (1)_3: -883276764
       concept gg (1)_2: -1147036610
       concept gg (1)_5: 817312923
+      concept gg (1)_6: 957511772
       concept gg (1)_0: -284658191
+      concept gg (1)_8: 357842150
       concept gg (1)_1: 313284412
+      concept gg (1)_7: 1023504687
       concept gg (1)_4: -947531796
   spritePackingTag: 
   pSDRemoveMatte: 0
