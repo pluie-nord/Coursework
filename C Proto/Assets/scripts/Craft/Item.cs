@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public string itemName;
+    public int colorID;
+    public int colorCount;
 }

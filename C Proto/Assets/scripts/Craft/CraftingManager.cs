@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,10 @@ public class CraftingManager : MonoBehaviour
     public Slot[] craftingSlots;
 
     public List<Item> itemList;
-    public string[] recipes;
     public Item[] recipeResults;
     public Slot resultSlot;
+
+    InventoryItemData craftItem;
 
     private void Update()
     {
@@ -46,32 +48,62 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
+
+
     void CheckForCreatedRecipes()
     {
         resultSlot.gameObject.SetActive(false);
         resultSlot.item = null;
-
-        string currentRecipeString = "";
-        foreach (Item item in itemList)
+        List<int> currentRecipeString = new List<int>(); //List<int> [1,2]
+        //sort не рецепт
+        //сравнить
+        foreach (Item item in itemList)// вместо item IID
         {
             if (item != null)
             {
-                currentRecipeString += item.itemName;
+                currentRecipeString.Add(item.colorID);
             }
-            else
-            {
-                currentRecipeString += "null";
-            }
+
         }
-        for (int i = 0; i < recipes.Length; i++)
+
+
+        List<List<int>> recipe = new List<List<int>>();
+        List<int> list = new List<int>();
+
+        list.Add(1);
+        list.Add(2);
+        recipe.Add(list);
+        list.Clear();
+
+        print(recipe[0].Count);
+        currentRecipeString.Sort();
+
+       List<int> currentRecipeStringUnic = new List<int>();
+        if (currentRecipeString.Count()>=1)
+        currentRecipeStringUnic.Add(currentRecipeString[0]);
+        if (currentRecipeString.Count()>=2)
+        for (int j=1; j<currentRecipeString.Count(); j++)
         {
-            if (recipes[i] == currentRecipeString)
-            {
-                resultSlot.gameObject.SetActive(true);
-                resultSlot.GetComponent<Image>().sprite = recipeResults[i].GetComponent<Image>().sprite;
-                resultSlot.item = recipeResults[i];
-            }
+            if (currentRecipeString[j] != currentRecipeString[j - 1]) currentRecipeStringUnic.Add(currentRecipeString[j]);
         }
+        
+        for (int i = 0; i < recipe.Count(); i++)
+        {
+            if(currentRecipeStringUnic.Count==2)
+            {
+                print(recipe[i][0] + " " + recipe[i][1] + " " + currentRecipeStringUnic[0] + currentRecipeStringUnic[1]);
+                
+                if (recipe[i] == currentRecipeStringUnic)
+                {
+                    resultSlot.gameObject.SetActive(true);
+                    resultSlot.GetComponent<Image>().sprite = recipeResults[i].GetComponent<Image>().sprite;
+                    resultSlot.item = recipeResults[i];
+                    //проверить красители через словарь Dictionary
+                }
+            }
+ 
+        }
+        recipe.Clear();
     }
     public void OnClicSlot(Slot slot)
     {
