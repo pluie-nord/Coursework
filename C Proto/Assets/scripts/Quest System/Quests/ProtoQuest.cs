@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ProtoQuest : Quest
 {
-    void Start()
+    public void SetQuest()
     {
-        QuestName = "Лисоебы";
-        Description = "Лисички такие вкусные... Подождиде, вы не про грибы?";
+        QuestName = "Хвосты и уши";
+        Description = "Малышка Аня очень просить нарисовать ей лисичку. Огненно-рыжую, с пышным хвостиком. Вы же не станете расстраивать ребенка?";
         ItemReward = null;
-        Goals.Add(new DrawGoal(this, 1, "Зарисуйте 1 лису", false, 0, 1));
+        Goals.Add(new DrawGoal(this, 1, "Зарисовать 1 лису", false, 0, 1));
         Goals.ForEach(g => g.Init());
         print("Quest setted");
     }

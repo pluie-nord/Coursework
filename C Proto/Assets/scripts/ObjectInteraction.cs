@@ -38,6 +38,7 @@ public class ObjectInteraction : MonoBehaviour
                 FindObjectOfType<Controller>().enabled = false;
                 FindObjectOfType<Draw>().currentObject = this;
                 FindObjectOfType<Draw>().SetImage(ID, image);
+                toActivate = false;
             }
         }
         
