@@ -10,27 +10,52 @@ public class QuestsUIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI questName;
     [SerializeField] TextMeshProUGUI description;
     [SerializeField] TextMeshProUGUI[] goals;
-    void Start()
+    [SerializeField] TextMeshProUGUI[] goalsTrack;
+
+    private string currentName;
+    private string currentDescription;
+    private int currentGoalCount;
+    private List<Goal> currentGoals;
+
+
+    public void SetCurrentActiveQuest(string questName, string description, int goalCount, List<Goal> goals)
     {
-        SetActiveQuest(displayedQuest.QuestName, displayedQuest.Description, displayedQuest.Goals.Count, displayedQuest.Goals);
+        this.currentName = questName;
+        this.currentDescription = description;
+        this.currentGoalCount = goalCount;
+        this.currentGoals = goals;
     }
 
-    public void SetActiveQuest(string questName, string description, int goalCount, List<Goal> goals)
+    public void SetActiveQuest()
     {
-        this.questName.text = questName;
-        this.description.text = description;
+        this.questName.text = currentName;
+        this.description.text = currentDescription;
         for(int i = 0; i<3; i++)
         {
-            if (i+1>goalCount)
+            if (i+1> currentGoalCount)
             {
-                this.goals[i].color = new Color32(0, 0, 0, 0);
+                this.goals[i].gameObject.SetActive(false);
             }
             else
             {
-                this.goals[i].color = new Color32(0, 0, 0, 255);
-                this.goals[i].text = goals[i].Description+" " + goals[i].CurrentAmount + "/" + goals[i].RequiredAmount;
+                this.goals[i].gameObject.SetActive(true);
+                this.goals[i].text = currentGoals[i].Description;
             }
         }
+        for (int i = 0; i < currentGoals.Count; i++)
+        {
+            goalsTrack[i].text = currentGoals[i].CurrentAmount + "/" + currentGoals[i].RequiredAmount;
+        }
+    }
+
+    public void SetGoalTrecker()
+    {
+        print("Пересчет");
+        for(int i = 0; i < currentGoals.Count; i++)
+        {
+            goalsTrack[i].text = currentGoals[i].CurrentAmount + "/" + currentGoals[i].RequiredAmount;
+        }
+
     }
     
 }

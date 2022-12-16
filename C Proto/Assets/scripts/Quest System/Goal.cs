@@ -18,7 +18,7 @@ public class Goal
 
     public void Evaluate()
     {
-        
+        Quest.ResetAmount();
         if (CurrentAmount>=RequiredAmount)
         {
             Complete();

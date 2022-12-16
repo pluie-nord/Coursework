@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogueSystem : MonoBehaviour
+public class DialogueSystem : MonoBehaviour, ITalk
 {
     //ѕерва€ реплика, нынешн€€ реплика и статус диалога
     [SerializeField] DialogueState firstState;
@@ -15,6 +15,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] GameObject UIFolder;
 
     public TutorialQuest_1 QuestToSet;
+
+    public string stateID { get; set; }
 
     void Start()
     {
@@ -50,6 +52,9 @@ public class DialogueSystem : MonoBehaviour
                 }
                 else
                 {
+                    stateID = currentState.name;
+                    print(stateID);
+                    TalkEvent.StateChanged(this);
                     UIFolder.SetActive(false);
                     ActiveDialogue = false;
                     FindObjectOfType<Controller>().enabled = true;

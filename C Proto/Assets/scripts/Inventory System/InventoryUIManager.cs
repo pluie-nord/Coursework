@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryUIManager : MonoBehaviour
 {
@@ -43,8 +44,23 @@ public class InventoryUIManager : MonoBehaviour
         GameObject newItem = Instantiate(itemPrefab);
         newItem.transform.SetParent(layoutObject.transform);
         newItem.transform.localScale = new Vector3(1, 1, 1);
-        newItem.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = newData.icon;
+        newItem.transform.GetChild(0).GetComponent<Image>().sprite = newData.icon;
         UIitems.Add(newData.id, newItem);
+    }
+
+    public void RemoveFromInventory(InventoryItemData itemData, int stackSize)
+    {
+        if(stackSize==0)
+        {
+            if (UIitems.TryGetValue(itemData.id, out GameObject objectToStack))
+            {
+                Destroy(objectToStack);
+            }
+        }
+        else
+        {
+            StackToInventory(itemData, stackSize);
+        }
     }
 
     public void StackToInventory(InventoryItemData referenceData, int stackSize)

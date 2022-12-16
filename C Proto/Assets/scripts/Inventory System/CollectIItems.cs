@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CollectIItems : MonoBehaviour, IItem
 {
-    public float accessRange = 1f;
-    public LayerMask playerLayer;
     [SerializeField] InventoryItemData itemData;
     public int ID { get; set; }
     private InventorySystem inventoryManager;
@@ -20,16 +18,12 @@ public class CollectIItems : MonoBehaviour, IItem
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics2D.OverlapCircleAll(transform.position, accessRange, playerLayer).Length!=0)
+            if (GetComponent<ObjectInteraction>().toActivate)
             {
                 inventoryManager.Add(itemData);
                 InventorySystem.ItemCollected(this);
                 Destroy(gameObject);
             }
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, accessRange);
     }
 }

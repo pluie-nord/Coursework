@@ -8,5 +8,7 @@ public class InventoryItemData : ScriptableObject
     public string id;
     public string displayName;
     public Sprite icon;
-    public GameObject prefab;
+    public GameObject prefab; //добавить ColorID и ColorCount инты
+    public int ColorID;
+    public int ColorCount;
 }

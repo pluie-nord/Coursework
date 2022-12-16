@@ -43,6 +43,7 @@ public class InventorySystem : MonoBehaviour
             inventory.Add(newItem);
             m_itemDictionary.Add(referenceData, newItem);
             inventoryUI.AddToInventory(referenceData);
+            inventoryUI.StackToInventory(referenceData, newItem.stackSize);
         }
     }
 
@@ -51,6 +52,7 @@ public class InventorySystem : MonoBehaviour
         if(m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.RemoveFromStack();
+            inventoryUI.RemoveFromInventory(referenceData, value.stackSize);
             if(value.stackSize==0)
             {
                 inventory.Remove(value);

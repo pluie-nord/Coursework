@@ -13,6 +13,7 @@ public class UImanager : MonoBehaviour
             if (!questUI.activeSelf)
             {
                 questUI.SetActive(true);
+                FindObjectOfType<QuestsUIManager>().SetActiveQuest();
             }
             else { questUI.SetActive(false); }
         }

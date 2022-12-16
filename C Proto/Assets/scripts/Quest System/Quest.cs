@@ -11,6 +11,9 @@ public class Quest : MonoBehaviour
     public int EXPReward { get; set; }
     public InventoryItemData ItemReward { get; set; }
     public bool Completed { get; set; }
+    public TutorialQuest_1 NextQuest { get; set; }
+    public TutorialQuest_1 CurrentQuest { get; set; }
+    public int QuestID { get; set; }
 
     public void CheckGoals()
     {
@@ -20,9 +23,19 @@ public class Quest : MonoBehaviour
     
     void GiveReward()
     {
-        Debug.Log(" вест пройден!");
+        Debug.Log(" вест пройден ебана");
+        QuestEvent.QuestCompleted(CurrentQuest);
+        Debug.Log(NextQuest);
+        if(NextQuest!=null) //если за квестом следует другой
+            CurrentQuest.nextQuest.SetQuest();
         if (ItemReward != null)
             InventorySystem.Instance.Add(ItemReward);
 
     }
+
+    public void ResetAmount()
+    {
+        FindObjectOfType<QuestsUIManager>().SetGoalTrecker();
+    }
+
 }

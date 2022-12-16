@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class DrawGoal : Goal
@@ -27,6 +28,7 @@ public class DrawGoal : Goal
     {
         if (picture.ID == this.ImageID)
         {
+            Debug.Log("Направили пересчет");
             CurrentAmount++;
             Evaluate();
         }

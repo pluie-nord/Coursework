@@ -22,7 +22,7 @@ public class ActiveQuestUI : MonoBehaviour
 
     public void HiddenToActive()
     {
-        questsUIManager.SetActiveQuest(displayedQuest.QuestName, displayedQuest.Description, displayedQuest.Goals.Count, displayedQuest.Goals);
+        questsUIManager.SetActiveQuest();
         Quest newActiveQuest = displayedQuest;
         displayedQuest = questsUIManager.displayedQuest;
         questsUIManager.displayedQuest = newActiveQuest;
