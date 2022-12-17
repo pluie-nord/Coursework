@@ -80,7 +80,11 @@ public class CraftSystem : MonoBehaviour
     {
         craftBtn.interactable = false;
         print("Вы создали краску!");
-        inventorySystem.Add(currentRecipe.inventoryItemData);
+        for(int i = 0; i < colorNumbers.Max(); i++)
+        {
+            inventorySystem.Add(currentRecipe.inventoryItemData);
+        }
+
         colorCount.text = "0";
         colorName.text = null;
         colorImg.sprite = null;

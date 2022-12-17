@@ -24,8 +24,23 @@ public class CraftManager : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape) & CraftScreen.activeSelf)
         {
+            foreach (var i in FindObjectsOfType<DeleteItem>())
+            {
+                if (i.InSlot)
+                {
+                    Destroy(i.gameObject);
+                }
+            }
+            FindObjectOfType<CraftSystem>().ResetColorant();
+            CraftScreen.SetActive(false);
+            MainScreen.SetActive(true);
+        }
+    }
+
+    public void OpenCraft()
+    {
             CraftScreen.SetActive(true);
             MainScreen.SetActive(false);
             List<InventoryItem> inventoryForCraft = inventorySystem.inventory;
@@ -54,19 +69,6 @@ public class CraftManager : MonoBehaviour
                 craftInventoryBack[i].GetComponent<DeleteItem>().itemCount = inventoryForCraft[i].stackSize;
                 craftInventoryBack[i].GetComponent<DeleteItem>().ChangeText(craftInventoryBack[i].transform.parent.GetChild(1).GetComponent<TextMeshProUGUI>(), craftInventoryBack[i].GetComponent<DeleteItem>().itemCount);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            foreach (var i in FindObjectsOfType<DeleteItem>())
-            {
-                if (i.InSlot)
-                {
-                    Destroy(i.gameObject);
-                }
-            }
-            FindObjectOfType<CraftSystem>().ResetColorant();
-            CraftScreen.SetActive(false);
-            MainScreen.SetActive(true);
-        }
     }
+
 }
